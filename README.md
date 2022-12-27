@@ -1,13 +1,12 @@
 # lms-sidusis_update_netranges - script for Lan Management System (LMS) 
-########################## readme EN (PL below):
-
-Requirements (will probably run on earlier versions, but tested on the following):
-"php" : ">=7.4.30",
-"chilek/lms-plus" : ">=27.52"
-
+########################## readme EN (PL below):  
 Script to automatically create/update netranges table entries for lms-plus NMS
 
-*by "technology stack" we understand a SINGLE group of variables required for netranges table:
+Requirements (will probably run on earlier versions, but tested on the following):  
+"php" : ">=7.4.30",  
+"chilek/lms-plus" : ">=27.52"
+
+note: by "technology stack" we understand a SINGLE group of variables required for netranges table:  
 ['linktype', 'linktechnology', 'downlink', 'uplink', 'type', 'services']
 
 How to use (tl;dr - brief version):
@@ -38,15 +37,14 @@ How to use (full: usage and operation):
 6. To actually use this script, select the parameter. Run with the '-h' parameter for a detailed description.
 
 
-########################## readme PL:
-
-Wymagania (prawdopodobnie będzie działać na wcześniejszych wersjach, ale testowany na poniższych):
-"php" : ">=7.4.30",
-"chilek/lms-plus" : ">=27.52"
-
+########################## readme PL:  
 Skrypt do automatycznego tworzenia/aktualizacji tabeli netranges dla lms-plus
 
-*przez "stos technologii (technology stack)" rozumiemy JEDNĄ grupę zmiennych wymaganych dla tabeli netranges:
+Wymagania (prawdopodobnie będzie działać na wcześniejszych wersjach, ale testowany na poniższych):  
+"php" : ">=7.4.30",  
+"chilek/lms-plus" : ">=27.52"
+
+uwaga: przez "stos technologii (technology stack)" rozumiemy JEDNĄ grupę zmiennych wymaganych dla tabeli netranges:  
 ['linktype', 'linktechnology', 'downlink', 'uplink', 'type', 'services']
 
 Sposób użycia (tl;dr - wersja skrócona):
