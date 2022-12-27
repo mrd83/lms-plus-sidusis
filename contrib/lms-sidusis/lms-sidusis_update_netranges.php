@@ -29,17 +29,17 @@ $node_names = array(
             1 => array('linktype' => 0, 'linktechnology' => 8, 'downlink' => 1000 , 'uplink' => 1000, 'type' => 1, 'services' => 2),
             2 => array('linktype' => 0, 'linktechnology' => 7, 'downlink' => 100 , 'uplink' => 100, 'type' => 1, 'services' => 2),
         ),
-        'GPON-%' => array(
-            1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 1000 , 'uplink' => 500, 'type' => 1, 'services' => 2),
-        ),
+#        'GPON-%' => array(
+#            1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 1000 , 'uplink' => 500, 'type' => 1, 'services' => 2),
+#        ),
         'ZTE-%' => array(
             1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 600 , 'uplink' => 300, 'type' => 1, 'services' => 2),
         ),
 );
 
 # change to true after updating above $node_names array:
-#$i_updated_my_vars = false;
-$i_updated_my_vars = true;
+$i_updated_my_vars = false;
+#$i_updated_my_vars = true;
 
 # link types:
 /*
