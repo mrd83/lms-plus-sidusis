@@ -23,22 +23,23 @@
 
 ### user variables
 ## node names array left as an example. Change to names existing in your DB with desired technologies stack(s)
+## 'SW-%' - will look for names BEGINNING WITH 'SW-', to look for names CONTAINING a substring use: '%SW-%' [an example, two '%' are important here]
 $node_names = array(
         'SW-%' => array(
             1 => array('linktype' => 0, 'linktechnology' => 8, 'downlink' => 1000 , 'uplink' => 1000, 'type' => 1, 'services' => 2),
             2 => array('linktype' => 0, 'linktechnology' => 7, 'downlink' => 100 , 'uplink' => 100, 'type' => 1, 'services' => 2),
         ),
-#        'GPON-%' => array(
-#            1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 1000 , 'uplink' => 500, 'type' => 1, 'services' => 2),
-#        ),
+        'GPON-%' => array(
+            1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 1000 , 'uplink' => 500, 'type' => 1, 'services' => 2),
+        ),
         'ZTE-%' => array(
             1 => array('linktype' => 2, 'linktechnology' => 209, 'downlink' => 600 , 'uplink' => 300, 'type' => 1, 'services' => 2),
         ),
 );
 
 # change to true after updating above $node_names array:
-$i_updated_my_vars = false;
-#$i_updated_my_vars = true;
+#$i_updated_my_vars = false;
+$i_updated_my_vars = true;
 
 # link types:
 /*
@@ -331,7 +332,7 @@ if (!$add_theoretical_ranges) {
                         $unique_addresses[$uniq_key]['uplink'] = $dup_val['uplink'];
                     }
                     $data = "Got a valid duplicate for building id: " . $unique_addresses[$uniq_key]['building_id'] . ". Values:\n" . $echo_dupes . "\n" . $echo_candidates .
-                        "\nSelected values (to add to DB):\n" . $echo_candidates;
+                        "\nSelected values (to be added to DB):\n" . $echo_candidates . "\n";
                     fwrite($LOGFILE_CANDIDATE_DUPES, $data);
                     echo "Corrected speeds. New values in candidates array:\n" . $echo_candidates . "\n\n";
                 } else {
