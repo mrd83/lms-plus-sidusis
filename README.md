@@ -1,5 +1,6 @@
 # lms-sidusis_update_netranges - script for Lan Management System (LMS) 
 ########################## readme EN (PL below):
+
 Requirements (will probably run on earlier versions, but tested on the following):
 "php" : ">=7.4.30",
 "chilek/lms-plus" : ">=27.52"
@@ -38,6 +39,7 @@ How to use (full: usage and operation):
 
 
 ########################## readme PL:
+
 Wymagania (prawdopodobnie będzie działać na wcześniejszych wersjach, ale testowany na poniższych):
 "php" : ">=7.4.30",
 "chilek/lms-plus" : ">=27.52"
