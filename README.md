@@ -1,10 +1,13 @@
 # lms-sidusis_update_netranges - script for Lan Management System (LMS) 
 ########################## readme EN (PL below):
+Requirements (will probably run on earlier versions, but tested on the following):
+"php" : ">=7.4.30",
+"chilek/lms-plus" : ">=27.52"
 
 Script to automatically create/update netranges table entries for lms-plus NMS
 
 *by "technology stack" we understand a SINGLE group of variables required for netranges table:
-'linktype', 'linktechnology', 'downlink', 'uplink', 'type' and 'services'
+['linktype', 'linktechnology', 'downlink', 'uplink', 'type', 'services']
 
 How to use (tl;dr - brief version):
 1. Modify the '$node_names' array in the "user variables" section (first lines of the script) according to your needs:
@@ -35,11 +38,14 @@ How to use (full: usage and operation):
 
 
 ########################## readme PL:
+Wymagania (prawdopodobnie będzie działać na wcześniejszych wersjach, ale testowany na poniższych):
+"php" : ">=7.4.30",
+"chilek/lms-plus" : ">=27.52"
 
 Skrypt do automatycznego tworzenia/aktualizacji tabeli netranges dla lms-plus
 
 *przez "stos technologii (technology stack)" rozumiemy JEDNĄ grupę zmiennych wymaganych dla tabeli netranges:
-'linktype', 'linktechnology', 'downlink', 'uplink', 'type' and 'services'
+['linktype', 'linktechnology', 'downlink', 'uplink', 'type', 'services']
 
 Sposób użycia (tl;dr - wersja skrócona):
 1. Zmodyfikuj tablicę '$node_names' w sekcji "zmienne użytkownika" (pierwsze linie skryptu) wedle swoich potrzeb:
