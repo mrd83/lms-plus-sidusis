@@ -346,7 +346,7 @@ if (!$add_theoretical_ranges) {
                     # Since we used our dupes check function that compares only 'building_id' key - there can be a lot of those.
                     # Not an error, function could be done better, if I just had the time... :)
                     $unique_addresses[] = array('building_id' => $dup_val['building_id'], 'linktype' => $dup_val['linktype'], 'linktechnology' => $dup_val['linktechnology'],
-                        'downlink' => $dup_val['downlink'], 'uplink' => $dup_val['uplink'], 'type' => $dup_val['type'], 'services' => $dup_val['linktype']);
+                        'downlink' => $dup_val['downlink'], 'uplink' => $dup_val['uplink'], 'type' => $dup_val['type'], 'services' => $dup_val['services']);
                 }
             } else {
                 # that's serious problem here! Report it to me!
@@ -366,7 +366,7 @@ if (!$add_theoretical_ranges) {
         echo ">initial_run< parameter selected. Cleaning netranges table...";
         $DB->Execute("TRUNCATE TABLE netranges");
         $DB->Execute("ALTER SEQUENCE netranges_id_seq RESTART");
-        echo "done!\nPopulating table with new data from candidates array. Expecting " . count($candidates_array) . " new rows...\n";
+        echo "done!\nPopulating table with the new data from candidates array. Expecting " . count($candidates_array) . " new rows...\n";
         foreach ($candidates_array as $value) {
             $DB->Execute("INSERT INTO netranges (buildingid, linktype, linktechnology, downlink, uplink, type, services)
 		VALUES (?, ?, ?, ?, ?, ?, ?)", array_values($value));
@@ -388,7 +388,7 @@ if (!$add_theoretical_ranges) {
                                                                                         type = ? AND services = ? LIMIT 1", array_values($args))) {
                 $counter++;
                 $DB->Execute("INSERT INTO netranges (buildingid, linktype, linktechnology, downlink, uplink, type, services) VALUES (?, ?, ?, ?, ?, ?, ?)", array_values($args));
-                echo $counter . ". Added a row to DB with following values: " . $item['building_id'] . ", " . $item['linktype'] . ", " . $item['linktechnology'] . ", " .
+                echo $counter . ". Added a row to the DB with the following values: " . $item['building_id'] . ", " . $item['linktype'] . ", " . $item['linktechnology'] . ", " .
                     $item['downlink'] . ", " . $item['uplink'] . ", " . $item['type'] . ", " . $item['services'] . "\n";
             }
         }
@@ -422,7 +422,7 @@ function get_building_ids_for_node_type($node_name) : array {
     # our two main arrays:
     list($unique_addresses, $duplicates/*, $unique_keys */) = unique_multidim_array($results, 'building_id');
 
-    # Create extensive diff logs if run without 'm' parameter:
+    # Create extensive diff logs if run without the '-m' parameter:
     if (!$minimal_logging) {
         # difference check between DB tables used in main query: 3 tables, 2 checks (between 1 and 2; 2 and 3) + extra check (stored in $diff_results_extra)
 
@@ -514,7 +514,7 @@ function get_building_ids_for_node_type($node_name) : array {
         fclose($LOGFILE_DUPES);
         fclose($LOGFILE_PROBLEMATIC);
     } else {
-        echo "Skipping diff logs for node names: " . $node_name . " - because of 'm' parameter.\n";
+        echo "Skipping diff logs for node names: " . $node_name . " - because of '-m' parameter.\n";
     }
 
     # return array of location buildings id's:
