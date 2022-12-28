@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3 #https://github.com/actions/checkout
-        
+
       - name: 'Cache node testing'
         id: cache-test
         uses: actions/cache@v3.2.2
@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-            
+
       - if: ${{ steps.cache-test.outputs.cache-hit != 'true' }}
         name: Example of cache miss
         #continue-on-error: true
@@ -52,7 +52,7 @@ jobs:
         uses: chilek/lms-plus@stable
         #with:
           #repository: php/php-src@PHP-7.4.30
-          
+
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v3 #default was v2; https://github.com/actions/dependency-review-action
         with:
