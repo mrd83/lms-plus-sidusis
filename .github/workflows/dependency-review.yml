@@ -50,8 +50,8 @@ jobs:
 
       - name: 'Trying to use lmsplus repo and specific php version as a dependency'
         uses: chilek/lms-plus@stable
-        with:
-          repository: php/php-src@PHP-7.4.30
+        #with:
+          #repository: php/php-src@PHP-7.4.30
           
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v3 #default was v2; https://github.com/actions/dependency-review-action
