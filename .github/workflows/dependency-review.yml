@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3 #https://github.com/actions/checkout
+        with:
+          repository: php/php-src@PHP-7.4.30
 
       - name: 'Cache node testing'
         id: cache-test
@@ -48,8 +50,8 @@ jobs:
         #continue-on-error: true
         run: echo "Github cache miss for key-- ${{ env.current_calculated_cache_key }} ! Still testing..."
 
-      - name: 'Trying to use lmsplus repo and specific php version as a dependency'
-        uses: chilek/lms-plus@stable
+      #- name: 'Trying to use lmsplus repo and specific php version as a dependency'
+        #uses: chilek/lms-plus@stable
         #with:
           #repository: php/php-src@PHP-7.4.30
 
