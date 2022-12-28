@@ -48,9 +48,9 @@ jobs:
         #continue-on-error: true
         run: echo "Github cache miss for key-- ${{ env.current_calculated_cache_key }} ! Still testing..."
 
-      - name: 'Trying to use lmsplus repo and specific php version as a dependency'
+      #- name: 'Trying to use lmsplus repo and specific php version as a dependency'
         #uses: chilek/lms-plus@stable
-        uses: php/php-src@PHP-7.4.30
+        #uses: php/php-src@PHP-7.4.30
         #with:
           #repository: php/php-src@PHP-7.4.30
 
