@@ -6,6 +6,12 @@
  *
  *  (C) 2022 Michał Dąbrowski, michal@euro-net.pl
  *
+ *  regarding the excessive amount of comments:
+ *  "Always code as if the guy who ends up maintaining your code
+ *  will be a violent psychopath who knows where you live." – Martin Golding
+ *
+ *
+ *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License Version 2 as
  *  published by the Free Software Foundation.
