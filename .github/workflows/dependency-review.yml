@@ -37,7 +37,7 @@ jobs:
           path: ~/.github-internal_cache_for_workflows-TESTING
           #key: some_long_random_string_sdvsavslal2r2krbl2rb2kb2l342tb5ub3k5b3k5byk3byk23btk2btk532bt23bt5k2345tDjhKBVILlvbiubil
           #key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/lms-plus-sidusis') }}
-          key: $env.current_calculated_cache_key
+          key: ${{ env.current_calculated_cache_key }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
