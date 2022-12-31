@@ -1,0 +1,60 @@
+# Dependency Review Action
+#
+# This Action will scan dependency manifest files that change as part of a Pull Request, surfacing known-vulnerable versions of the packages declared or updated in the PR. Once installed, if the workflow run is marked as required, PRs introducing known-vulnerable packages will be blocked from merging.
+#
+# Source repository: https://github.com/actions/dependency-review-action
+# Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
+name: 'Dependency Review'
+on: [create, delete, fork, pull_request, watch]
+#on: [pull_request]
+
+# permissions: read-all
+permissions:
+  contents: read
+
+concurrency:
+# "A concurrency group can be any string or expression."
+  group:  lms-plus-sidusis
+  cancel-in-progress: true
+
+jobs:
+  dependency-review: #this is (probably?) job_id
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3 #https://github.com/actions/checkout
+
+      - name: 'Cache node testing'
+        id: cache-test
+        uses: actions/cache@v3.2.2
+        env:
+          cache-name: cache-some-random-name-for-test-purposes
+          #example: '**/README.md' - A README.md file anywhere in the repository.
+          current_calculated_cache_key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('LICENSE', 'README.md', 'contrib/lms-sidusis/lms-sidusis_update_netranges.php') }}
+        with:
+          path: ~/.github-internal_cache_for_workflows-TESTING
+          #key: some_long_random_string_sdvsavslal2r2krbl2rb2kb2l342tb5ub3k5b3k5byk3byk23btk2btk532bt23bt5k2345tDjhKBVILlvbiubil
+          #key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/lms-plus-sidusis') }}
+          key: ${{ env.current_calculated_cache_key }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-test.outputs.cache-hit != 'true' }}
+        name: Example of cache miss
+        #continue-on-error: true
+        run: echo "Github cache miss for key-- " ${{ env.current_calculated_cache_key }}
+
+      #- name: 'Trying to use lmsplus repo and specific php version as a dependency'
+        #uses: chilek/lms-plus@stable
+        #uses: php/php-src@PHP-7.4.30
+        #with:
+          #repository: php/php-src@PHP-7.4.30
+
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v3 #default was v2; https://github.com/actions/dependency-review-action
+        with:
+          vulnerability-check: true
